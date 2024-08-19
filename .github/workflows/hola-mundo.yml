@@ -1,0 +1,17 @@
+name: hola mundo
+on:
+  pull_request:
+      branches: 
+       - aprendiendo-github-actions
+
+jobs: 
+   hola-mundo: 
+    runs-on: ubuntu-latest
+    steps: 
+     - uses: actions/checkout@v4
+     - name: Instalar node
+       uses: actions/setup-node@v4
+       with:
+         node-version: '20.x'
+     - name: Run script
+       run:  node index.js
