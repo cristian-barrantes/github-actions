@@ -1,8 +1,15 @@
 name: hola mundo
-on: 
-   -push
-   -pull_request
-   -issues
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.js'
+  issues:
+    types:
+      - labeled
  
       branches: 
        - aprendiendo-github-actions
