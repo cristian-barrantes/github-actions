@@ -1,0 +1,24 @@
+name: hola mundo
+run-name: triggers
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.js'
+  issues:
+    types:
+      - labeled 
+jobs: 
+   hola-mundo: 
+    runs-on: ubuntu-latest
+    steps: 
+     - uses: actions/checkout@v4
+     - name: Instalar node
+       uses: actions/setup-node@v4
+       with:
+         node-version: '18.x'
+     - name: Run script
+       run:  node index.js
